@@ -1,0 +1,294 @@
+body{
+margin:0;
+padding:30px;
+font-family:Arial,sans-serif;
+background:#f4f4f6;
+}
+
+.container{
+max-width:1000px;
+margin:auto;
+}
+
+.card,
+.form-box{
+background:white;
+padding:25px;
+border-radius:16px;
+margin-bottom:20px;
+box-shadow:0 0 10px rgba(0,0,0,0.05);
+}
+
+h1{
+margin:0;
+font-size:34px;
+}
+
+.weather-box{
+margin-top:20px;
+padding:28px;
+border-radius:14px;
+background:linear-gradient(
+to right,
+#dbe8ff,
+#e7efff
+);
+font-size:34px;
+font-weight:bold;
+color:#0047ff;
+text-align:center;
+}
+
+.weather-box span{
+font-size:22px;
+font-weight:normal;
+}
+
+.tabs{
+display:flex;
+gap:10px;
+margin-bottom:20px;
+}
+
+.tab{
+flex:1;
+padding:16px;
+border:none;
+border-radius:14px;
+background:#02031a;
+color:white;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+}
+
+input{
+width:100%;
+padding:16px;
+margin-bottom:12px;
+border:none;
+border-radius:12px;
+background:#f1f1f4;
+font-size:16px;
+box-sizing:border-box;
+}
+
+button{
+width:100%;
+padding:16px;
+margin-top:8px;
+border:none;
+border-radius:12px;
+background:#02031a;
+color:white;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+transition:0.2s;
+}
+
+button:hover{
+opacity:0.9;
+}
+
+button:disabled{
+background:#777;
+cursor:not-allowed;
+}
+
+#map{
+height:500px;
+width:100%;
+margin-top:20px;
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 0 10px rgba(0,0,0,0.05);
+}
+.floating-buttons{
+position:fixed;
+right:25px;
+bottom:25px;
+display:flex;
+flex-direction:column;
+gap:10px;
+z-index:9999;
+}
+
+.fab{
+width:60px;
+height:60px;
+border-radius:50%;
+border:none;
+background:#02031a;
+color:white;
+font-size:24px;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.fab.small{
+width:45px;
+height:45px;
+background:white;
+color:black;
+font-size:22px;
+}
+
+.close{
+position:absolute;
+right:20px;
+top:15px;
+cursor:pointer;
+font-size:22px;
+}
+
+.radio-row{
+display:flex;
+align-items:center;
+gap:14px;
+margin:18px 0;
+font-size:18px;
+cursor:pointer;
+}
+
+.radio-row span{
+position:static; /* 👈 prevents it from floating */
+}
+
+.radio-row input{
+width:20px;
+height:20px;
+margin:0;
+}
+.feedback-fab{
+position:fixed;
+left:25px;
+bottom:25px;
+width:72px;
+height:72px;
+border:none;
+border-radius:50%;
+background:#ff8a00;
+color:white;
+font-size:30px;
+cursor:pointer;
+box-shadow:0 8px 20px rgba(0,0,0,0.18);
+z-index:9999;
+transition:0.2s;
+}
+
+.feedback-fab:hover{
+transform:scale(1.05);
+}
+
+select{
+width:100%;
+padding:16px;
+margin-bottom:12px;
+border:none;
+border-radius:12px;
+background:#f1f1f4;
+font-size:16px;
+}
+
+#customSpeed{
+display:none;
+}
+
+/* =========================
+   MODAL OVERLAY
+========================= */
+.modal{
+position:fixed;
+z-index:1000;
+left:0;
+top:0;
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,0.4);
+
+/* centering */
+display:none;
+align-items:center;
+justify-content:center;
+}
+
+
+/* =========================
+   MODAL BOX
+========================= */
+.modal-content{
+background:white;
+padding:25px;
+border-radius:16px;
+width:90%;
+max-width:400px;
+text-align:left;
+
+
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+position:relative;
+
+animation:modalPop 0.2s ease;
+}
+
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+.modal-content .close{
+position:absolute;
+right:15px;
+top:10px;
+cursor:pointer;
+font-size:18px;
+}
+
+
+/* =========================
+   TEXTAREA (feedback)
+========================= */
+.modal-content textarea{
+width:100%;
+max-width:350px;
+margin:15px auto;
+display:block;
+}
+
+#feedbackMap{
+height:350px;
+border-radius:14px;
+margin:15px 0;
+overflow:hidden;
+}
+
+
+.location-btn{
+display:block;
+width:100%;
+margin:10px 0;
+padding:14px;
+
+background:#e7efff;
+color:#0047ff;
+
+border:none;
+border-radius:12px;
+font-size:15px;
+cursor:pointer;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+@keyframes modalPop{
+from{
+transform:scale(0.9);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}

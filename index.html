@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bike Route Planner</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+</head>
+
+<body>
+
+<!-- SETTINGS BUTTON -->
+<div class="floating-buttons">
+  <button class="fab" onclick="openSettings()">⚙️</button>
+</div>
+
+<!-- FEEDBACK BUTTON -->
+<button class="feedback-fab" onclick="openFeedback()">💬</button>
+
+
+<!-- SETTINGS MODAL -->
+<div id="settingsModal" class="modal">
+  <div class="modal-content">
+
+    <span class="close" onclick="closeSettings()">✖</span>
+
+    <h2>Cykel indstillinger</h2>
+
+    <label class="radio-row">
+      <input type="radio" name="bike" value="road" onclick="toggleCustomSpeed()" checked>
+      <span>Normal cykel (15 km/h)</span>
+    </label>
+
+    <label class="radio-row">
+      <input type="radio" name="bike" value="ebike" onclick="toggleCustomSpeed()">
+      <span>Elcykel (25 km/h)</span>
+    </label>
+
+    <label class="radio-row">
+      <input type="radio" name="bike" value="custom" onclick="toggleCustomSpeed()">
+      <span>Juster hastighed</span>
+    </label>
+
+    <input id="customSpeed" placeholder="Indtast hastighed">
+
+    <button onclick="saveSettings()">Gem indstillinger</button>
+
+  </div>
+</div>
+
+
+<!-- FEEDBACK MODAL -->
+<div id="feedbackModal" class="modal">
+  <div class="modal-content">
+
+    <span class="close" onclick="closeFeedback()">✖</span>
+
+    <h2>Feedback</h2>
+
+    <textarea id="feedbackText" placeholder="Write your feedback..."></textarea>
+
+    <button class="location-btn" onclick="openLocationPicker()">
+      📍 Tilføj lokation
+    </button>
+
+    <button onclick="submitFeedback()">Send</button>
+
+  </div>
+</div>
+
+
+<!-- LOCATION MODAL -->
+<div id="locationModal" class="modal">
+  <div class="modal-content">
+
+    <span class="close" onclick="closeLocationPicker()">✖</span>
+
+    <h2>Vælg lokalitet</h2>
+
+    <div id="feedbackMap"></div>
+
+    <button onclick="saveLocation()">Gem lokalitet</button>
+
+  </div>
+</div>
+
+
+<!-- MAIN CONTENT -->
+<div class="container">
+
+  <div class="card">
+    <h1>Rute Planlægger</h1>
+    <div class="weather-box" id="weatherBox">
+      Loading weather...
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active">Planlæg Rute</button>
+    <button class="tab" onclick="showSavedRoutes()">Gemte ruter</button>
+  </div>
+
+  <div class="form-box">
+
+    <input id="from" placeholder="📍 Start">
+    <input id="to" placeholder="📍 Destination">
+
+    <button id="routeBtn" onclick="findRoute()">Find Rute</button>
+
+    <button onclick="getLocation()">Brug GPS</button>
+
+  </div>
+
+  <div id="routeInfo"></div>
+  <div id="map"></div>
+
+</div>
+
+
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
