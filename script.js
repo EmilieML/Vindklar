@@ -207,7 +207,7 @@ function showInfo(distance, startW, endW){
    const timing = calculateLeaveEarlier(distance, speed, startW.windspeed, bikeType);
 
     el.innerHTML = `
-    <strong>${distance.toFixed(1)} km</strong> • ${timing.adjustedTime} min 🚴<br><br>
+    <strong>${distance.toFixed(1)} km</strong> • ${timing.adjustedTime} min. 🚴<br><br>
 
     ⏱ Normal tid: ${timing.baseTime} min.<br>
     ⏱ Din tid: ${timing.adjustedTime} min.<br><br>
